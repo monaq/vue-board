@@ -1,7 +1,15 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <HelloWorld />
+    <b-card header="Todo List" :no-block="tasksExist">
+      <b-list-group v-if="tasksExist">
+        <b-list-group-item v-for="task in tasks" :key="task.id" @click.native="moveToDoingList">
+        </b-list-group-item>
+      </b-list-group>
+      <h5 v-else>
+        해야할 일이 없습니다.
+      </h5>
+    </b-card>
   </div>
 </template>
 
@@ -16,13 +24,9 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  .no-padding {
+    padding: 0;
+    margin: 0;
+  }
 </style>

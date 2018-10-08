@@ -1,15 +1,21 @@
 import Vue from 'vue'
 import App from './App.vue'
+import BootstrapVue from 'bootstrap-vue'
 
 import router from '@/router'
 import store from '@/store'
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 Vue.config.productionTip = false
 
-// check auth
-router.beforeEach((to, from, next) => {
-  return Promise.all([store.dispatch()]).then(next)
-})
+// // check auth
+// router.beforeEach((to, from, next) => {
+//   return Promise.all([store.dispatch()]).then(next)
+// })
+
+Vue.use(BootstrapVue)
 
 new Vue({
   router,
