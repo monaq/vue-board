@@ -1,25 +1,20 @@
 <template>
   <div>
-    <HelloWorld />
-    <b-card header="Todo List" :no-block="tasksExist">
-      <b-list-group v-if="tasksExist">
-        <b-list-group-item v-for="task in tasks" :key="task.id" @click.native="moveToDoingList">
-        </b-list-group-item>
-      </b-list-group>
-      <h5 v-else>
-        해야할 일이 없습니다.
-      </h5>
-    </b-card>
+    <Header />
+    <Nav />
+    <router-view />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Navbar/Header.vue'
+import Nav from './components/Navbar/Nav.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Header,
+    Nav
   }
 }
 </script>

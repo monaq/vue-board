@@ -1,18 +1,25 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-import home from './module/home'
-// import auth from './auth.module'
-// import article from './article.module'
-// import profile from './profile.module'
+Vue.use(Vuex);
 
-Vue.use(Vuex)
-
+/* eslint-disable no-param-reassign */
 export default new Vuex.Store({
-    moudles: {
-        home
-        // auth,
-        // articles,
-        // profile
+  state: {
+    items: {
+      todo: [],
+      doing: [],
+      done: []
+    },
+    nextId: 1
+  },
+  mutations: {
+    addItem(state, item) {
+      state.items.todo.push(Object.assign(item, { id: state.nextId }));
+      state.nextId += 1;
+    },
+    updateItems(state, { items, id }) {
+      state.items[id] = items;
     }
-})
+  }
+});

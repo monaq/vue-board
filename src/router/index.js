@@ -1,18 +1,23 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Router from 'vue-router'
+import Backlog from '@/components/Backlog'
+import Kanban from '@/components/Kanban'
 
-import home from './module/home'
-// import auth from './auth.module'
-// import article from './article.module'
-// import profile from './profile.module'
+Vue.use(Router)
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-    moudles: {
-        home
-        // auth,
-        // articles,
-        // profile
-    }
-})
+export default new Router({
+    routes: [
+      {
+        path: '/backlog',
+        component: Backlog
+      },
+      {
+        path: '/board',
+        component: Kanban
+      },
+      {
+        path: '*',
+        redirect: '/backlog'
+      }
+    ],
+  });

@@ -10,11 +10,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
-// // check auth
-// router.beforeEach((to, from, next) => {
-//   return Promise.all([store.dispatch()]).then(next)
-// })
-
 Vue.use(BootstrapVue)
 
 new Vue({
